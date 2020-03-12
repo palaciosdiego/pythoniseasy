@@ -14,7 +14,7 @@ Name = "Time"
 Artist = "Pink Floyd"
 Album = "The Dark Side of the Moon"
 YearReleased = 1973
-Genders = "Rock, Progressive Rock progresivo, Psychedelic Rock"
+Genres = "Rock, Progressive Rock progresivo, Psychedelic Rock"
 Duration = 6.54
 Authors = "David Jon Gilmour / Nicholas Berkeley Mason / George Roger Waters / Richard William Wright"
 DurationInSeconds = (6*60) + 54
@@ -25,7 +25,7 @@ DurationInSeconds = (6*60) + 54
 print(Artist)
 print(Album)
 print(YearReleased)
-print(Genders)
+print(Genres)
 print(Duration)
 print(Authors)
 print(DurationInSeconds)
