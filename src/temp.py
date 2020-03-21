@@ -12,8 +12,6 @@ def addOne(Number):
 Var = 0
 Var2 = addOne(2.1+3.4)
 Var3 = addOne(Var2*2.1)
-print(Var2)
-print(Var3)
 
 
 def addOneAddTwo(NumberOne, NumberTwo):
@@ -24,23 +22,11 @@ def addOneAddTwo(NumberOne, NumberTwo):
 
 
 Sum = addOneAddTwo(Var2, Var3)
-print(Sum)
+# print(Sum)
 
 
-def printmessage(message, ntimes=1):
-    print(message * ntimes)
+Numbers = []
+for num in range(1, 12, 2):
+    Numbers.append(num)
 
-
-printmessage("Hello")
-printmessage("Hello", 5)
-
-num = 1
-
-
-def func():
-    num = 4
-    print(num)
-
-
-func()
-print(num)
+print(Numbers)
