@@ -19,11 +19,11 @@ def addLeftover(element):
     myLeftovers.append(element)
 
 
-addThing(5)
-addThing("Mouse")
-addThing("Mouse")
-addThing(["Cat", 1, "Dog"])
-addThing(5)
+# addThing(5)
+# addThing("Mouse")
+# addThing("Mouse")
+# addThing(["Cat", 1, "Dog"])
+# addThing(5)
 
 print(myUniqueList)
 print(myLeftovers)
