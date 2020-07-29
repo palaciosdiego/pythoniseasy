@@ -129,7 +129,55 @@ for key in dict:
 # print(count)
 
 
-s={"1","2","3","4","5"}
+# s={"1","2","3","4","5"}
 
-if "3" in s: 
-    print("3")
+# if "3" in s: 
+#     print("3")
+
+# name = input("Please enter your name: ")
+# print(name)
+
+# age = int(input("Please enter your age: "))
+# print(age+1)
+
+# Scores = []
+# for i in range(1):
+#     currentScore = float(input("Please enter the score " + str(i+1) + ": "))
+#     Scores.append(currentScore)
+#     print("The score you entered was:\n"+str(currentScore)+"\nnice")
+# print(Scores)
+
+# File = open("Filename","r") #"r","w","a","r+"
+# File.close()
+VacationSpots = ["London","Paris","New York","Utha","Iceland"]
+VacationFile = open("VacationPlaces","w")
+
+for Spots in VacationSpots:
+    VacationFile.write(Spots+"\n")
+VacationFile.close()
+
+VacationFile = open("VacationPlaces", "r")
+
+FirstLine = VacationFile.readline()
+print(FirstLine)
+SecondLine = VacationFile.readline()
+print(SecondLine)
+for line in VacationFile:
+    print(line,end = "")
+# TheWholeFile = VacationFile.read()
+# print(TheWholeFile)
+VacationFile.close()
+FinalSpot = "Thailand\n"
+VacationFile = open("VacationPlaces","a")
+VacationFile.write(FinalSpot)
+VacationFile.close()
+
+VacationFile = open("VacationPlaces", "r")
+for line in VacationFile:
+    print(line,end = "")
+
+VacationFile.close()
+
+with open("VacationPlaces","r") as VacationFile:
+    for line in VacationFile:
+        print(line)
