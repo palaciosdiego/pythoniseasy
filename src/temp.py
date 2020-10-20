@@ -1,6 +1,3 @@
-
-
-
 PI = 3.14
 one, two, three = 1, 2, 3
 decimal = 1.4
@@ -13,8 +10,8 @@ def addOne(Number):
 
 
 Var = 0
-Var2 = addOne(2.1+3.4)
-Var3 = addOne(Var2*2.1)
+Var2 = addOne(2.1 + 3.4)
+Var3 = addOne(Var2 * 2.1)
 
 
 def addOneAddTwo(NumberOne, NumberTwo):
@@ -74,8 +71,6 @@ while True:
 #         print("-----")
 
 
-
-
 # l = 3
 # for pos in range(1, 3):
 #     print("c"*pos)
@@ -107,19 +102,19 @@ while True:
 #     pourchaseSize = int(input("which size ?\n"))
 #     if pourchaseSize < 0:
 #         break
-#     if BlackShoes[pourchaseSize] > 0:        
+#     if BlackShoes[pourchaseSize] > 0:
 #         BlackShoes[pourchaseSize] -= 1
 #     else:
 #         print("no hay")
-#     print(BlackShoes)   
+#     print(BlackShoes)
 
-nums = set([7,7,1,3,4,5,5,2])
+nums = set([7, 7, 1, 3, 4, 5, 5, 2])
 # print(len(nums))
-nums = set([1,2,3,4,5,4,3,2,1])
+nums = set([1, 2, 3, 4, 5, 4, 3, 2, 1])
 # print(nums)
 dict = {}
 dict[1] = 2
-dict['1'] = 4
+dict["1"] = 4
 dict[1] += 2
 count = 0
 
@@ -131,7 +126,7 @@ for key in dict:
 
 # s={"1","2","3","4","5"}
 
-# if "3" in s: 
+# if "3" in s:
 #     print("3")
 
 # name = input("Please enter your name: ")
@@ -149,35 +144,81 @@ for key in dict:
 
 # File = open("Filename","r") #"r","w","a","r+"
 # File.close()
-VacationSpots = ["London","Paris","New York","Utha","Iceland"]
-VacationFile = open("VacationPlaces","w")
+VacationSpots = ["London", "Paris", "New York", "Utha", "Iceland"]
+VacationFile = open("VacationPlaces", "w")
 
 for Spots in VacationSpots:
-    VacationFile.write(Spots+"\n")
+    VacationFile.write(Spots + "\n")
 VacationFile.close()
 
 VacationFile = open("VacationPlaces", "r")
 
 FirstLine = VacationFile.readline()
-print(FirstLine)
+# print(FirstLine)
 SecondLine = VacationFile.readline()
-print(SecondLine)
-for line in VacationFile:
-    print(line,end = "")
+# print(SecondLine)
+# for line in VacationFile:
+#     print(line, end="")
 # TheWholeFile = VacationFile.read()
 # print(TheWholeFile)
 VacationFile.close()
 FinalSpot = "Thailand\n"
-VacationFile = open("VacationPlaces","a")
+VacationFile = open("VacationPlaces", "a")
 VacationFile.write(FinalSpot)
 VacationFile.close()
 
-VacationFile = open("VacationPlaces", "r")
-for line in VacationFile:
-    print(line,end = "")
+# VacationFile = open("VacationPlaces", "r")
+# for line in VacationFile:
+#     print(line, end="")
 
-VacationFile.close()
+# VacationFile.close()
 
-with open("VacationPlaces","r") as VacationFile:
-    for line in VacationFile:
-        print(line)
+# with open("VacationPlaces", "r") as VacationFile:
+#     for line in VacationFile:
+#         print(line)
+
+# /  /  0
+# ----- 1
+# /  /  2
+# ----- 3
+# /  /  4
+
+
+def drawField(field):
+    for row in range(5):  # 0,1,2,3,4 | # 0,.,1,.,2
+        if row % 2 == 0:  # 0,2,4
+            practicalRow = int(row / 2)  # 0,1,2
+            # print writing lines
+            for column in range(5):  # 0,1,2,3,4
+                # 0,.,1,.,2
+                if column % 2 == 0:  # 0,2,4
+                    practicalColumn = int(column / 2)  # 0,1,2
+                    if column != 4:
+                        print(field[practicalColumn][practicalRow], end="")
+                    else:
+                        print(field[practicalColumn][practicalRow])
+                else:
+                    print("|", end="")
+        else:
+            print("-----")
+
+
+Player = 1
+currentField = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
+drawField(currentField)
+while True:
+    print("Players turn: ", Player)
+    MoveRow = int(input("Please enter the row\n"))
+    MoveColumn = int(input("Please enter the column\n"))
+    if Player == 1:
+        # Make move for p1
+        if currentField[MoveColumn][MoveRow] == " ":
+            currentField[MoveColumn][MoveRow] = "X"
+            Player = 2
+    else:
+        # Make move for p2
+        if currentField[MoveColumn][MoveRow] == " ":
+            currentField[MoveColumn][MoveRow] = "O"
+            Player = 1
+    # print(currentField)
+    drawField(currentField)
