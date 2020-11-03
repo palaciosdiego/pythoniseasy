@@ -32,6 +32,7 @@ for line in inputFile:
     inputList.append(tempParticipant)
 
 Age = {}
+
 for part in inputList:
     tempAge = int(part[-1])
     if tempAge in Age:
@@ -40,4 +41,32 @@ for part in inputList:
         Age[tempAge] = 1
 
 print(Age)
+
+Countries = {}
+
+for part in inputList:
+    tempCountry = part[1]
+    if tempCountry in Countries:
+        Countries[tempCountry] += 1
+    else:
+        Countries[tempCountry] = 1
+
+print("countries that attended:", Countries)
+Oldest = 0
+Youngest = 100
+mostOcurringAge = 0
+counter = 0
+
+for tempAge in Age:
+    if tempAge > Oldest:
+        Oldest = tempAge
+    if tempAge < Youngest:
+        Youngest = tempAge
+    if Age[tempAge] > counter:
+        counter = Age[tempAge]
+        mostOcurringAge = tempAge
+
+print("oldest", Oldest)
+print("youngest", Youngest)
+print("Most ocurring age is:", mostOcurringAge, "with", counter, "participants")
 inputFile.close()
