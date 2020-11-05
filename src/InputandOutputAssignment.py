@@ -14,9 +14,8 @@ def getNamesList(filename):
     listNames = []
     mainFile = open(filename, "r")
     for line in mainFile:
-        tempName = line.strip("\n").split()
-        listNames.append(tempName[0])
-    # listNames = mainFile.readlines()
+        tempName = line.strip("\n")
+        listNames.append(tempName)
     mainFile.close()
     return listNames
 
@@ -39,7 +38,7 @@ def createNewFile(name):
 
 
 def readFile(fileName):
-    print("Reading...")
+    print("-----Reading-----")
     f = open(fileName, "r")
     file_contents = f.read()
     print(file_contents)
@@ -47,7 +46,7 @@ def readFile(fileName):
 
 
 def deleteFile(fileName):
-    print("Deleting...", fileName)
+    print("-----Deleting-----", fileName)
     mainFile = "fileNames.txt"
     inputFile = open(mainFile, "r")
     fileLines = []
@@ -65,8 +64,13 @@ def deleteFile(fileName):
     initProgram()
 
 
+def setEmptyFile(fileName):
+    emptyList = []
+    reWriteFile(fileName, emptyList)
+
+
 def appendFile(fileName):
-    print("Appending...")
+    print("-----Appending----")
     newData = input("Enter a new text for this file: ")
     outputFile = open(fileName, "a")
     outputFile.write(newData)
@@ -87,13 +91,14 @@ def reWriteFile(fileName, dataLines):
 def replaceLine(fileName):
     inputFile = open(fileName, "r")
     fileLines = []
-
+    print("---Lines of the file---")
     cont = 1
     for line in inputFile:
-        fileLines.append(line)
-        print("line", cont, "content:", line)
+        tempLine = line.strip("\n")
+        fileLines.append(tempLine)
+        print(cont, "-", tempLine)
         cont += 1
-
+    print(fileLines)
     line = int(input("What line do you want to replace? "))
 
     if line <= len(fileLines):
@@ -113,7 +118,8 @@ def switch(option, fileName):
     if option == 1:
         readFile(fileName)
     elif option == 2:
-        deleteFile(fileName)
+        # deleteFile(fileName)
+        setEmptyFile(fileName)
     elif option == 3:
         appendFile(fileName)
     elif option == 4:
@@ -144,18 +150,18 @@ def initProgram():
     name = formattingFileName(inputNameFile)
 
     if name + ".txt" not in namesList:
-        print("This will be a new file...")
+        # print("This will be a new file...")
         namesList.append(name)
         createNewFile(name)
         writeInFile(nameFileList, namesList)
         namesList = getNamesList(nameFileList)
-        print("new list of files:", namesList)
+        # print("new list of files:", namesList)
     else:
         print("What do you want to do with this file?")
         print("1 - Read the file")
         print("2 - Delete the file and start over")
         print("3 - Append the file")
-        print("4 - Replace a line")
+        print("4 - Replace a single line")
         option = int(input("Enter your choise: "))
 
         switch(option, name + ".txt")
