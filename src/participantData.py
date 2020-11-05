@@ -18,7 +18,8 @@ while registeredParticipants < ParticipantNunber:
 print(participantData)
 for participant in participantData:
     for data in participant:
-        outputFile.write(str(data))
+        tempLine = data.replace(".txt", "")
+        outputFile.write(str(data) + ".txt")
         outputFile.write(" ")
     outputFile.write("\n")
 

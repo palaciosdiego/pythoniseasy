@@ -205,20 +205,43 @@ def drawField(field):
 
 Player = 1
 currentField = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
-drawField(currentField)
-while True:
-    print("Players turn: ", Player)
-    MoveRow = int(input("Please enter the row\n"))
-    MoveColumn = int(input("Please enter the column\n"))
-    if Player == 1:
-        # Make move for p1
-        if currentField[MoveColumn][MoveRow] == " ":
-            currentField[MoveColumn][MoveRow] = "X"
-            Player = 2
-    else:
-        # Make move for p2
-        if currentField[MoveColumn][MoveRow] == " ":
-            currentField[MoveColumn][MoveRow] = "O"
-            Player = 1
-    # print(currentField)
-    drawField(currentField)
+# drawField(currentField)
+# while True:
+# print("Players turn: ", Player)
+# MoveRow = int(input("Please enter the row\n"))
+# MoveColumn = int(input("Please enter the column\n"))
+# if Player == 1:
+#     # Make move for p1
+#     if currentField[MoveColumn][MoveRow] == " ":
+#         currentField[MoveColumn][MoveRow] = "X"
+#         Player = 2
+# else:
+#     # Make move for p2
+#     if currentField[MoveColumn][MoveRow] == " ":
+#         currentField[MoveColumn][MoveRow] = "O"
+#         Player = 1
+# print(currentField)
+# drawField(currentField)
+
+# Participant Data
+
+ParticipantNumber = 2
+participantData = []
+registeredParticipants = 0
+outputFile = open("ParticipantsData.txt", "w")
+
+while registeredParticipants < ParticipantNumber:
+    tempPartData = []  # name,country,age
+    name = input("Please enter your name: ")
+    tempPartData.append(name)
+    country = input("Please enter your country: ")
+    tempPartData.append(country)
+    age = int(input("Please enter your age: "))
+    tempPartData.append(age)
+
+    participantData.append(tempPartData)
+    registeredParticipants += 1
+
+for participant in participantData:
+    
+outputFile.close()
